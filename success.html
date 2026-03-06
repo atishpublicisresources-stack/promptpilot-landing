@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Pro! — PromptPilot</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06060f;--surface:#0e0e1e;--border:rgba(139,92,246,0.15);--purple:#8b5cf6;--purple-light:#a78bfa;--text:#f0ebff;--muted:rgba(200,185,255,0.5);--green:#4ade80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;}
+.card{background:var(--surface);border:1px solid rgba(74,222,128,0.3);border-radius:24px;padding:52px 40px;max-width:500px;width:100%;text-align:center;}
+.icon{font-size:64px;margin-bottom:24px;}
+h1{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;margin-bottom:12px;letter-spacing:-1px;}
+h1 span{color:var(--green);}
+p{color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:32px;}
+.steps-box{background:rgba(139,92,246,0.06);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:left;margin-bottom:32px;}
+.steps-box h3{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--purple-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.step-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;}
+.step-item:last-child{margin-bottom:0;}
+.step-num{background:rgba(139,92,246,0.2);color:var(--purple-light);font-weight:700;font-size:13px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-text{font-size:14px;color:rgba(200,185,255,0.8);line-height:1.6;}
+.step-text strong{color:var(--text);}
+.email-box{background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;font-size:14px;color:var(--green);}
+#userEmail{font-weight:700;}
+.btn{display:inline-block;background:var(--purple);color:#fff;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.2s;box-shadow:0 8px 30px rgba(139,92,246,0.4);}
+.btn:hover{background:#7c3aed;transform:translateY(-2px);}
+.footer-note{margin-top:24px;font-size:12px;color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="icon">🎉</div>
+  <h1>You're <span>Pro!</span></h1>
+  <p>Your payment was successful. You now have <strong>unlimited prompt improvements</strong> on all 6 AI platforms.</p>
+
+  <div class="email-box">
+    ✅ Pro activated for: <span id="userEmail">your email</span>
+  </div>
+
+  <div class="steps-box">
+    <h3>Activate Pro in your extension</h3>
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-text">Open Chrome and click the <strong>PromptPilot extension icon</strong> in your toolbar</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-text">Click <strong>"Activate Pro"</strong> and enter the email you used to pay</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-text">Go to <strong>ChatGPT, Claude, or any supported platform</strong> and enjoy unlimited improvements!</div>
+    </div>
+  </div>
+
+  <a href="https://chromewebstore.google.com/detail/promptpilot/mnljkioboniphpocikknfljhnoekjpik" class="btn" target="_blank">
+    ✦ Open PromptPilot Extension
+  </a>
+
+  <p class="footer-note">Questions? Contact us at support@promptpilotpro.com<br>You can cancel anytime from your email receipt.</p>
+</div>
+
+<script>
+// Get email from URL params (Dodo passes these back)
+const params = new URLSearchParams(window.location.search);
+const email = params.get('email') || localStorage.getItem('pp_email') || 'your email';
+document.getElementById('userEmail').textContent = email;
+</script>
+</body>
+</html>
